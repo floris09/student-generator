@@ -8,5 +8,8 @@ class User < ApplicationRecord
     self.admin == true
   end
 
- 
+  def not_admin?
+    self.admin == false
+  end
+
 end
