@@ -14,11 +14,12 @@ class AdminsController < ApplicationController
     @pairs = []
     i = @students.count
     while i > 0 do
-    get_student
-    @pairs << @pair
-    i -= 1
+      get_student
+      i -= 1
     end
-  end
+    @pairs
+end
+
 
   def show
 
@@ -32,9 +33,17 @@ class AdminsController < ApplicationController
     while @student1 == @student2
       @student1 = @students.sample
     end
-    @pair = []
-    @pair << @student1.email
-    @pair << @student2.email
+    @pair = [@student1.email, @student2.email]
+    add_pair_to_array
   end
 
+  def add_pair_to_array
+
+    unless @pairs.include?([@student1.email,@student2.email]) || @pairs.include?([@student2.email,@student1.email]) do
+
+    @pairs << @pair
+
+    end
+  end
+end
 end
