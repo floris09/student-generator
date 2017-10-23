@@ -1,6 +1,9 @@
-<%= render 'shared/navbar' %>
 
 <h1>StudentGenerator</h1>
 
+<% if user_signed_in? && current_user.not_admin? %>
 <%= link_to "Students", users_path %>
+<% end %>
+<% if user_signed_in?  && current_user.admin? %>
 <%= link_to "Admins", admins_path %>
+<% end %>
