@@ -10,9 +10,8 @@ class AdminsController < ApplicationController
 
   def showpair
     @users = User.all
-    @students = users.select {|a| a.not_admin?}
-    @student1 = @students.sample
-    @student2 = @students.sample
+    @students = @users.select {|a| a.not_admin?}
+    get_student
 
   end
 
@@ -24,11 +23,11 @@ class AdminsController < ApplicationController
 
   def get_student
     @student1 = @students.sample
-    @student2 = @students.sample 
-
-    if @student1 == @student2
+    @student2 = @students.sample
+    while @student1 == @student2
       @student1 = @students.sample
     end
+
   end
 
 end
