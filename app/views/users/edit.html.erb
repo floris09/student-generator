@@ -1,13 +1,1 @@
-<div class="text-center"><%= @user.email %></div>
-
-<div class="text-center">
-  <%= form_for @user do |f| %>
-  <% if @user.not_admin? %>
-    <%= f.check_box :admin %> Admin
-    <%= f.submit "Promote to Admin", class:"btn btn-success" %>
-    <% elsif @user.admin? %>
-    <%= f.check_box :admin %> Admin
-    <%= f.submit "Demote from Admin", class:"btn btn-danger" %>
-  <% end %>
-  <% end %>
-</div>
+<%= render 'form' %>

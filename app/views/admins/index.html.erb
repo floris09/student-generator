@@ -10,7 +10,15 @@
     <p>Email: <%= user.email %></p>
   </div>
   <div class="col-xs-6">
-    <%= link_to "Admin", edit_user_path(user), class: "btn btn-success admin_btn"  %>
+    <%= form_for user do |f| %>
+    <% if user.not_admin? %>
+      <%= f.check_box :admin %> Admin
+      <%= f.submit "Promote to Admin", class:"btn btn-success" %>
+      <% elsif user.admin? %>
+      <%= f.check_box :admin %> Admin
+      <%= f.submit "Demote from Admin", class:"btn btn-danger" %>
+    <% end %>
+    <% end %>
   </div>
 </div>
   <% elsif user.not_admin? %>
@@ -19,7 +27,15 @@
       <p>Email: <%= user.email %></p>
     </div>
     <div class="col-xs-6">
-      <%= link_to "Student", edit_user_path(user), class: "btn btn-primary admin_btn"  %>
+      <%= form_for user do |f| %>
+      <% if user.not_admin? %>
+        <%= f.check_box :admin %> Admin
+        <%= f.submit "Promote to Admin", class:"btn btn-success" %>
+        <% elsif user.admin? %>
+        <%= f.check_box :admin %> Admin
+        <%= f.submit "Demote from Admin", class:"btn btn-danger" %>
+      <% end %>
+      <% end %>
     </div>
   </div>
   <% end %>
