@@ -1,0 +1,14 @@
+<% @students.each do |student| %>
+<ul>
+<li><%= student.email %></li>
+</ul>
+<% end %>
+
+<%= @student1.email %>
+<%= @student2.email %>
+
+<%= link_to show_pair_path do %>
+<div class="btn btn-primary">
+  Get New Pair
+</div>
+<% end %>
