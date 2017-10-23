@@ -18,6 +18,7 @@ class AdminsController < ApplicationController
     @arr2
 
 
+
   end
 
   def show
@@ -36,6 +37,15 @@ class AdminsController < ApplicationController
     (@count/2).times{
       randomstudent = students.slice!(rand(students.count))
       @arr2 << randomstudent.email}
+  end
+
+  def make_pairs
+    @pair = []
+
+    @pair << @arr1.slice!(rand(@arr1.count))
+    @pair << @arr2.slice!(rand(@arr1.count))
+    @pairs << @pair
+    @pair = []
 
   end
 

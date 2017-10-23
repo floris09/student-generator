@@ -12,4 +12,12 @@ class User < ApplicationRecord
     self.admin == false
   end
 
+  def to_admin
+    self.admin = true
+  end
+
+  def to_student
+    self.admin = false
+  end
+
 end
