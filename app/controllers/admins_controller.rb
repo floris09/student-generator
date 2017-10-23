@@ -17,15 +17,11 @@ class AdminsController < ApplicationController
     @all_combinations = @student_emails.combination(2).to_a
 
 
-<<<<<<< HEAD
-
-=======
     # make_arrays
     # @arr1
     # @arr2
     # make_pairs(2)
     # @pairs
->>>>>>> 5e13e7fac624a3f7e33b160212e6777338d6d3c3
   end
 
   def show
@@ -33,36 +29,13 @@ class AdminsController < ApplicationController
 
   private
 
-<<<<<<< HEAD
-  def make_arrays
-    @arr1 = []
-    @arr2 = []
-    students = @students
-    (@count/2).times{
-      randomstudent = students.slice!(rand(students.count))
-      @arr1 << randomstudent.email}
-    (@count/2).times{
-      randomstudent = students.slice!(rand(students.count))
-      @arr2 << randomstudent.email}
-  end
-
-  def make_pairs
-    @pair = []
-
-    @pair << @arr1.slice!(rand(@arr1.count))
-    @pair << @arr2.slice!(rand(@arr1.count))
-    @pairs << @pair
-    @pair = []
-
-=======
   def student_emails
     @student_emails = []
     @students.each do |student|
       @student_emails << student.email
     end
->>>>>>> 5e13e7fac624a3f7e33b160212e6777338d6d3c3
   end
-
+end
 
   # def make_arrays
   #   @arr1 = []
@@ -84,4 +57,3 @@ class AdminsController < ApplicationController
   #     @pairs << pair
   #   end
   # end
-end
