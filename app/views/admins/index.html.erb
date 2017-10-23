@@ -1,1 +1,10 @@
 <h1>Matches</h1>
+
+<h2>All users</h2>
+
+
+<% @users.each do |user| %>
+<% if user.not_admin? %>
+<p>Email: <%= user.email %></p>
+<% end %>
+<% end %>
