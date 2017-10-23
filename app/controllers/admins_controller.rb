@@ -11,9 +11,14 @@ class AdminsController < ApplicationController
   def showpair
     @users = User.all
     @students = @users.select {|a| a.not_admin?}
-    @pairs
-end
+    @pairs = []
+    @count = @students.count
+    make_arrays
+    @arr1
+    @arr2
 
+
+  end
 
   def show
 
@@ -21,13 +26,17 @@ end
 
   private
 
-  def get_student
-    @student1 = @students.sample
-    @student2 = @students.sample
-    while @student1 == @student2
-      @student1 = @students.sample
-    end
-    @pair = [@student1.email, @student2.email]
+  def make_arrays
+    @arr1 = []
+    @arr2 = []
+    students = @students
+    (@count/2).times{
+      randomstudent = students.slice!(rand(students.count))
+      @arr1 << randomstudent.email}
+    (@count/2).times{
+      randomstudent = students.slice!(rand(students.count))
+      @arr2 << randomstudent.email}
+
   end
 
   def add_pair_to_array
