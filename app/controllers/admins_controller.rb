@@ -39,21 +39,6 @@ class AdminsController < ApplicationController
 
   end
 
-  def add_pair_to_array
-    @pairs.each do |pair|
-      @pairs << @pair unless pair.include?(@student1.email) || pair.include?(@student2.email)
-    end
-  end
-
-  def
-    @pairs = []
-    i = @students.count
-    while i > 0 do
-      get_student
-      i -= 2
-      @pairs << @pair
-    end
-  end
 
 
 end
