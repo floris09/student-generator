@@ -11,12 +11,6 @@ class AdminsController < ApplicationController
   def showpair
     @users = User.all
     @students = @users.select {|a| a.not_admin?}
-    @pairs = []
-    i = @students.count
-    while i > 0 do
-      get_student
-      i -= 1
-    end
     @pairs
 end
 
@@ -34,16 +28,23 @@ end
       @student1 = @students.sample
     end
     @pair = [@student1.email, @student2.email]
-    add_pair_to_array
   end
 
   def add_pair_to_array
-
-    unless @pairs.include?([@student1.email,@student2.email]) || @pairs.include?([@student2.email,@student1.email]) do
-
-    @pairs << @pair
-
+    @pairs.each do |pair|
+      @pairs << @pair unless pair.include?(@student1.email) || pair.include?(@student2.email)
     end
   end
-end
+
+  def
+    @pairs = []
+    i = @students.count
+    while i > 0 do
+      get_student
+      i -= 2
+      @pairs << @pair
+    end
+  end
+
+
 end
