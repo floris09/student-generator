@@ -27,5 +27,8 @@ module StudentGenerator
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    console do
+      ActiveRecord::Base.connection
+    end
   end
 end
