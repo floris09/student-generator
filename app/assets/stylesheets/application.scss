@@ -11,6 +11,13 @@
 .admin_btn {
   margin-left: 25px;
   width: 200px;
+  background-color: green !important;
+}
+
+.student_btn {
+  margin-left: 25px;
+  width: 200px;
+  background-color: navy !important;
 }
 
 .admin_tag {
@@ -25,4 +32,31 @@
   color: #fff;
   border-radius: 25px;
   padding: 5px;
+}
+
+.inner_all {
+  padding-left: 40px;
+  padding-top: 30px;
+  height: 460px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.inner_admin {
+  padding-left: 40px;
+  padding-top: 30px;
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.inner_student {
+  padding-left: 40px;
+  padding-top: 30px;
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
