@@ -1,42 +1,63 @@
+<script>
+
+function promoteAdmin(id) {
+
+  $.ajax({
+    type: "PUT",
+    url: "/users/" + id + ".json",
+    data: JSON.stringify({
+      user: { admin: true }
+    }),
+    contentType: "application/json",
+    dataType: "json"
+  });
+
+}
+
+function demoteAdmin(id) {
+
+  $.ajax({
+    type: "PUT",
+    url: "/users/" + id + ".json",
+    data: JSON.stringify({
+      user: { admin: false }
+    }),
+    contentType: "application/json",
+    dataType: "json"
+  });
+
+}
+
+
+
+
+
+</script>
+
 <h1>Matches</h1>
 
 <h2>All users</h2>
 
-
-<% @users.each do |user| %>
-  <% if user.admin? %>
-<div class="row admin_row">
-  <div class="col-xs-6 text-right">
-    <p>Email: <%= user.email %></p>
-  </div>
-  <div class="col-xs-6">
-    <%= form_for user do |f| %>
-    <% if user.not_admin? %>
-      <%= f.check_box :admin %> Admin
-      <%= f.submit "Promote to Admin", class:"btn btn-success" %>
-      <% elsif user.admin? %>
-      <%= f.check_box :admin %> Admin
-      <%= f.submit "Demote from Admin", class:"btn btn-danger" %>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-  <% elsif user.not_admin? %>
+<div class="col-xs-6 col-xs-offset-3">
+  <% @users.order_by_admin.each do |user| %>
+    <% if user.admin? %>
   <div class="row admin_row">
     <div class="col-xs-6 text-right">
-      <p>Email: <%= user.email %></p>
+      <h5><%= user.email %></h5>
+      <%= link_to admins_path do %> <div id="toggle-admin" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-danger'>Demote from Admin</div> <% end %>
     </div>
     <div class="col-xs-6">
-      <%= form_for user do |f| %>
-      <% if user.not_admin? %>
-        <%= f.check_box :admin %> Admin
-        <%= f.submit "Promote to Admin", class:"btn btn-success" %>
-        <% elsif user.admin? %>
-        <%= f.check_box :admin %> Admin
-        <%= f.submit "Demote from Admin", class:"btn btn-danger" %>
-      <% end %>
-      <% end %>
+
+
     </div>
   </div>
+    <% elsif user.not_admin? %>
+    <div class="row admin_row">
+      <div class="col-xs-6 text-right">
+        <h5><%= user.email %></h5>
+        <%= link_to admins_path do %> <div id="toggle-admin" onclick="promoteAdmin(<%=user.id%>)" class='btn btn-primary'>Promote to Admin</div> <% end %>
+      </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
