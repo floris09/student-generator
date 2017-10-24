@@ -41,21 +41,26 @@ class AdminsController < ApplicationController
   def all_pairs
     @arr1 = []
     @i = @all_combinations.count
-    randompair = @all_combinations.slice!(rand(@i))
+    randompair = @all_combinations.slice!(0)
+    @arr1 << randompair
+    @i = @all_combinations.count
+    randompair = @all_combinations.slice!(@i-1)
     @arr1 << randompair
 
+
     while @arr1.count <= (@count/2) do
-        randompair = @all_combinations.slice!(rand(@i))
-        student1 = randompair[0]
-        student2 = randompair[1]
-        @arr1.each do |pair|
-        pair.each do |student|
-        if student != student1 && student != student2
+        @i = @all_combinations.count
+        randompair = @all_combinations.slice!(rand(@i-1))
+      #  student1 = randompair[0]
+      #  student2 = randompair[1]
+      #  @arr1.each do |pair|
+      #  pair.each do |student|
+      #  if student != student1 && student != student2
        @arr1 << randompair
-      end
-    end
+      #end
+    #end
+#end
 end
-  end
 end
 
 
