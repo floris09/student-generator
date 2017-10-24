@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def self.order_by_admin
-    order(:admin)
+    order(admin: :desc)
   end
 
 end

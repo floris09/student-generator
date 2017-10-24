@@ -5,5 +5,5 @@
 <%= link_to "Students", users_path %>
 <% end %>
 <% if user_signed_in?  && current_user.admin? %>
-<%= link_to "Admins", admins_path %>
+<%= link_to "Admin Settings", admins_path %>
 <% end %>
