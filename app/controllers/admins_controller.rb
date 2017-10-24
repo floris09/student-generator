@@ -45,10 +45,6 @@ class AdminsController < ApplicationController
 
   def all_pairs
     @arr1 = []
-    randompair = @all_combinations.slice!(0)
-    @arr1 << randompair
-
-
 
     while @arr1.count < (@count/2) do
         @i = @all_combinations.count
