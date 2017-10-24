@@ -30,6 +30,10 @@ class AdminsController < ApplicationController
   def show
   end
 
+  def update
+    @user.update_attributes(user_params)
+  end
+
   private
 
   def student_emails
@@ -56,6 +60,9 @@ end
 
 end
 
+def user_params
+  params.require(:user).permit(:admin)
+end
 
   # def make_arrays
   #   @arr1 = []
@@ -76,5 +83,6 @@ end
   #     pair << @arr2[i+day-1]
   #     @pairs << pair
   #   end
+  # end
   # end
 end

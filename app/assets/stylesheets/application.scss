@@ -4,8 +4,11 @@
 
 .admin_row, .non_admin_row {
   margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .admin_btn {
-  width: 100px;
+  margin-left: 25px;
+  width: 170px;
 }
