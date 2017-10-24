@@ -12,8 +12,11 @@
 
 <%= @all_combinations %>
 <h1>First array</h1>
-<%= @arr1 %>
-
+<ol>
+<% @pairs.each do |day| %>
+<li><%= day %></li>
+<% end %>
+</ol>
 
 
 
