@@ -15,6 +15,8 @@ class AdminsController < ApplicationController
     @count = @students.count
     student_emails
     @all_combinations = @student_emails.combination(2).to_a
+    all_pairs
+    @arr1
 
 
     # make_arrays
@@ -35,7 +37,27 @@ class AdminsController < ApplicationController
       @student_emails << student.email
     end
   end
+
+  def all_pairs
+    @arr1 = []
+    @i = @all_combinations.count
+    randompair = @all_combinations.slice!(rand(@i))
+    @arr1 << randompair
+
+    while @arr1.count <= (@count/2) do
+        randompair = @all_combinations.slice!(rand(@i))
+        student1 = randompair[0]
+        student2 = randompair[1]
+        @arr1.each do |pair|
+        pair.each do |student|
+        if student != student1 && student != student2
+       @arr1 << randompair
+      end
+    end
 end
+  end
+end
+
 
   # def make_arrays
   #   @arr1 = []
@@ -57,3 +79,4 @@ end
   #     @pairs << pair
   #   end
   # end
+end
