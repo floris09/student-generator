@@ -12,4 +12,8 @@ class User < ApplicationRecord
     self.admin == false
   end
 
+  def self.order_by_admin
+    order(:admin)
+  end
+
 end
