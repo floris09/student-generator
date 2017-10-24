@@ -20,7 +20,7 @@ class User < ApplicationRecord
   def to_student
     self.admin = false
   end
-  
+
   def self.order_by_admin
     order(admin: :desc)
   end

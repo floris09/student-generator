@@ -1,34 +1,20 @@
-class AdminsController < ApplicationController
-    before_action :authenticate_user!
-    before_action do
-      redirect_to new_user_session_path unless current_user && current_user.admin?
+  class AdminsController < ApplicationController
+      before_action :authenticate_user!
+      before_action do
+        redirect_to new_user_session_path unless current_user && current_user.admin?
+      end
+
+    def index
+      @users = User.all
     end
 
-  def index
-    @users = User.all
-  end
+    def showpair
+      @users = User.all
+      @students = @users.select {|a| a.not_admin?}
+      round_robin
+      @pairs
+    end 
 
-  def showpair
-    @users = User.all
-    @students = @users.select {|a| a.not_admin?}
-    @pairs = []
-    @count = @students.count
-    student_emails
-    @all_combinations = @student_emails.combination(2).to_a
-    all_pairs
-    @arr1
-
-
-
-    # make_arrays
-    # @arr1
-    # @arr2
-    # make_pairs(2)
-    # @pairs
-  end
-
-  def show
-  end
 
   def update
     user = User.find(params[:id])
@@ -43,6 +29,11 @@ class AdminsController < ApplicationController
     end
   end
 
+
+    def show
+    end
+
+    
   private
 
   def student_emails
@@ -52,46 +43,20 @@ class AdminsController < ApplicationController
     end
   end
 
-  def all_pairs
-    @arr1 = []
-    randompair = @all_combinations.slice!(0)
-    @arr1 << randompair
+
+    def round_robin
+      student_emails
+        @pairs = (1...@student_emails.size).map do |r|
+        s = @student_emails.dup
+        (0...(@student_emails.size/2)).map do |_|
+        [s.shift,s.delete_at(-(r % s.size + (r >= s.size * 2 ? 1 : 0)))]
+       end
+       end
+     end
 
 
+  def user_params
+    params.require(:user).permit(:admin)
+  end
 
-    while @arr1.count < (@count/2) do
-        @i = @all_combinations.count
-        @randompair = @all_combinations.slice!(rand(@i-1))
-        @arr1.each do |pair|
-           @arr1 << @randompair unless pair.include?(@randompair[0]) || pair.include?(@randompair[1])
-    end
-end
-
-end
-
-def user_params
-  params.require(:user).permit(:admin)
-end
-
-  # def make_arrays
-  #   @arr1 = []
-  #   @arr2 = []
-  #   students = @students
-  #   (@count/2).times{
-  #     randomstudent = students.slice!(rand(students.count))
-  #     @arr1 << randomstudent.email}
-  #   (@count/2).times{
-  #     randomstudent = students.slice!(rand(students.count))
-  #     @arr2 << randomstudent.email}
-  # end
-  #
-  # def make_pairs(day)
-  #   for i in 0...(@arr1.count)
-  #     pair = []
-  #     pair << @arr1[i]
-  #     pair << @arr2[i+day-1]
-  #     @pairs << pair
-  #   end
-  # end
-  # end
-end
+  end
