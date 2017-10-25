@@ -6,4 +6,5 @@
 <% end %>
 <% if user_signed_in?  && current_user.admin? %>
 <%= link_to "Admin Settings", admins_path %>
+<button type="button" class="btn btn-primary btn-lg"><%= link_to "Student pairs", show_pair_path  %></button>
 <% end %>

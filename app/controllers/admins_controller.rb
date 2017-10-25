@@ -9,13 +9,11 @@ class AdminsController < ApplicationController
   end
 
   def showpair
-    if current_user.pair_id == nil
+    if Pair.count == 0
       @pair = Pair.create
       @pair.make_pairs
-      current_user.pair_id = @pair.id
-      current_user.save
     else
-      @pair = Pair.find(current_user.pair_id)
+      @pair = Pair.last
     end
 
   end
