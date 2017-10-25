@@ -18,6 +18,18 @@ RSpec.describe User, type: :model do
   end
 end
 
+describe ".order_by_admin" do
+   subject { User.order_by_admin }
+
+     let(:user1) { create :user, admin: true }
+     let(:user2) { create :user, admin: false }
+
+    it "is sorted on admin in descending order" do
+       expect(subject).to eq([user1, user2])
+     end
+   end
+
+
 
 
 
