@@ -1,23 +1,28 @@
 <%= form_for @pair do |f| %>
-<button type="button" class="btn btn-default btn-lg" style = "margin-top:0;">
-    <%= f.submit "Make new pairs", method: :update, remote: true %>
-</button>
+  <button type="button" class="btn btn-default btn-lg" style = "margin-top:0;">
+    <%= f.submit "Make new pairs", method: :update %>
+  </button>
 <% end %>
 
 <h1>Today's pairs</h1>
-<ol>
-<% if @daypair != nil %>
-<li><%= @daypair.date %>
-<%= @daypair.pairs %></li>
-<% end %>
-</ol>
+  <% if @daypair != nil %>
+  <p><u><%= @daypair.date %> :</u></p>
+<ul>
+  <% @daypair.pairs.each do |pair| %>
+  <li><%= pair.join(" - ") %></li>
+  <% end %>
+  <% end %>
+</ul>
 
 <h1>History</h1>
 <ol>
-<% if @daypairs != nil %>
-<% @daypairs.each do |daypair| %>
-<li><%= daypair.date %>
-<%= daypair.pairs %></li>
-<% end %>
-<% end %>
+  <% if @daypairs != nil %>
+  <% @daypairs.each do |daypair| %>
+  <li><u><%= daypair.date %> : </u>
+  <% daypair.pairs.each do |pairs| %>
+  <p><%= pairs.join(" - ") %></p>
+  </li>
+  <% end %>
+  <% end %>
+  <% end %>
 </ol>

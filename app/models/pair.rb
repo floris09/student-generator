@@ -5,7 +5,6 @@ def make_pairs
   round_robin
   self.combinations = @pairs
   self.save
-
 end
 
 def pair_per_day
