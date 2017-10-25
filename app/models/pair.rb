@@ -61,6 +61,7 @@ private
     @students.each do |student|
       @student_emails << student.email
     end
+    @student_emails = @student_emails.shuffle
   end
 
 
