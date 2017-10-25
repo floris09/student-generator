@@ -1,18 +1,24 @@
-  class AdminsController < ApplicationController
-      before_action :authenticate_user!
-      before_action do
-        redirect_to new_user_session_path unless current_user && current_user.admin?
-      end
+class AdminsController < ApplicationController
+  before_action :authenticate_user!
+  before_action do
+    redirect_to new_user_session_path unless current_user && current_user.admin?
+  end
 
-    def index
-      @users = User.all
-    end
+  def index
+    @users = User.all
+  end
 
-    def showpair
+  def showpair
+    if current_user.pair_id == nil
       @pair = Pair.create
       @pair.make_pairs
-
+      current_user.pair_id = @pair.id
+      current_user.save
+    else
+      @pair = Pair.find(current_user.pair_id)
     end
+
+  end
 
 
   def update
