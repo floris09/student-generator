@@ -1,0 +1,2 @@
+class Daypair < ApplicationRecord
+end

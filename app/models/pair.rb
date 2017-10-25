@@ -9,7 +9,13 @@ def make_pairs
 end
 
 def pair_per_day
-  @day = self.combinations.slice!(0)
+  if self.combinations.count > 0
+    day = self.combinations.slice!(0)
+    self.save
+    @daypair = Daypair.create(date: Date.today, pairs: day )
+
+  end
+
 end
 
 
