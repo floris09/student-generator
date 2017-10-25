@@ -13,7 +13,7 @@
       @students = @users.select {|a| a.not_admin?}
       round_robin
       @pairs
-    end 
+    end
 
 
   def update
@@ -33,7 +33,7 @@
     def show
     end
 
-    
+
   private
 
   def student_emails
