@@ -11,4 +11,12 @@ feature 'Manage students' do
     expect(page).to have_content("Your Match For Today")
 
   end
+
+  scenario 'can see matches of previous days' do
+
+    visit root_path
+
+    expect(page).to have_content("Your Previous Matches")
+    
+  end
 end
