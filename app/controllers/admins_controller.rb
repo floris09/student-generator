@@ -13,6 +13,7 @@
       @students = @users.select {|a| a.not_admin?}
       round_robin
       @pairs
+      @pairs_combo = Pair.create.make_pairs
     end
 
 
@@ -42,17 +43,6 @@
       @student_emails << student.email
     end
   end
-
-
-    def round_robin
-      student_emails
-        @pairs = (1...@student_emails.size).map do |r|
-        s = @student_emails.dup
-        (0...(@student_emails.size/2)).map do |_|
-        [s.shift,s.delete_at(-(r % s.size + (r >= s.size * 2 ? 1 : 0)))]
-       end
-       end
-     end
 
 
   def user_params
