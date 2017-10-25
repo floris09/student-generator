@@ -11,8 +11,6 @@
     def showpair
       @users = User.all
       @students = @users.select {|a| a.not_admin?}
-      round_robin
-      @pairs
       @pairs_combo = Pair.create.make_pairs
     end
 
@@ -43,6 +41,7 @@
       @student_emails << student.email
     end
   end
+
 
 
   def user_params
