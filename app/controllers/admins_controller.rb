@@ -16,10 +16,14 @@ class AdminsController < ApplicationController
       @pair = Pair.last
     end
 
+    if @pair.combinations.count == 0
+      @pair.make_pairs
+    end
 
-    @pair.pair_per_day
+
     @daypair = Daypair.last
-    @daypairs = Daypair.all if Daypair.all.count > 0
+    @daypairs = Daypair.all
+
   end
 
 
@@ -55,5 +59,6 @@ class AdminsController < ApplicationController
   def user_params
     params.require(:user).permit(:admin)
   end
+
 
   end
