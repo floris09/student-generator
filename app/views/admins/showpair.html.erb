@@ -1,10 +1,12 @@
-<div class="btn btn-primary">
-  Get New Pair
-</div>
+<%= form_for @pair do |f| %>
+<button type="button" class="btn btn-default btn-lg" style = "margin-top:0;">
+    <%= f.submit "Make new pairs", method: :update, remote: true %>
+</button>
+<% end %>
 
 <h1>Today's pairs</h1>
 <ol>
-<% if @daypairs != nil %>
+<% if @daypair != nil %>
 <li><%= @daypair.date %>
 <%= @daypair.pairs %></li>
 <% end %>
