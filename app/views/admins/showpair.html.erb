@@ -1,19 +1,21 @@
-
-<h1>All combinations</h1>
-<ol>
-
-<li><%= @pair.pair_per_day %></li>
-<li><%= @pair.pair_per_day %></li>
-<li><%= @pair.pair_per_day %></li>
-<li><%= @pair.pair_per_day %></li>
-
-
-
-</ol>
-
-
-
-
 <div class="btn btn-primary">
   Get New Pair
 </div>
+
+<h1>Today's pairs</h1>
+<ol>
+<% if @daypairs != nil %>
+<li><%= @daypair.date %>
+<%= @daypair.pairs %></li>
+<% end %>
+</ol>
+
+<h1>History</h1>
+<ol>
+<% if @daypairs != nil %>
+<% @daypairs.each do |daypair| %>
+<li><%= daypair.date %>
+<%= daypair.pairs %></li>
+<% end %>
+<% end %>
+</ol>

@@ -16,6 +16,10 @@ class AdminsController < ApplicationController
       @pair = Pair.last
     end
 
+
+    @pair.pair_per_day
+    @daypair = Daypair.last
+    @daypairs = Daypair.all if Daypair.all.count > 0
   end
 
 
