@@ -1,9 +1,11 @@
 class Pair < ApplicationRecord
-  has_many :users, autosave: true
+  has_many :users
 
 def make_pairs
   round_robin
   self.combinations = @pairs
+  self.save
+
 end
 
 private

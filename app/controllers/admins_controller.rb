@@ -11,7 +11,9 @@
     def showpair
       @users = User.all
       @students = @users.select {|a| a.not_admin?}
-      @pairs_combo = Pair.create.make_pairs
+      @pair = Pair.create
+      @pair.make_pairs
+      
     end
 
 
