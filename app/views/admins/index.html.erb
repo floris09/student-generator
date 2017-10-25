@@ -18,10 +18,10 @@
         <h5 class="you_tag">YOU</h5>
       </div>
       <div class="col-xs-5 text-left">
-          <%= link_to admins_path, :data => {:confirm => 'Are you sure you want to demote yourself?'} do %> <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn'>Make Student</div> <% end %>
+          <%= link_to admins_path do %><div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn you_btn'>Make Student</div> <% end %>
       </div>
     </div>
-      <% elsif !current_user && user.admin? %>
+      <% elsif user.admin? %>
     <div class="row admin_row">
       <div class="col-xs-2 text-center">
         <h5 class="admin_tag">Admin</h5>

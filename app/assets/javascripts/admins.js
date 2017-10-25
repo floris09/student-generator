@@ -14,7 +14,6 @@ function promoteAdmin(id) {
 }
 
 function demoteAdmin(id) {
-
   $.ajax({
     type: "PUT",
     url: "/users/" + id + ".json",
@@ -24,5 +23,4 @@ function demoteAdmin(id) {
     contentType: "application/json",
     dataType: "json"
   });
-
 }
