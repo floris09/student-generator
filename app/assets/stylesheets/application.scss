@@ -2,6 +2,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+*:hover {
+  -webkit-transform: rotate(360deg);
+  transition: 2s;
+}
+
 .admin_row, .non_admin_row {
   margin-bottom: 10px;
   padding-bottom: 10px;

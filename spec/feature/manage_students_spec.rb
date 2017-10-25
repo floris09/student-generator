@@ -1,24 +1,14 @@
 require 'rails_helper'
 
-feature 'Manage Students', js: true do
-  let!(:admin) { create :user, admin: true }
-  let!(:student) { create :user, admin:true, id: '500' }
+feature 'Manage students' do
+  before { sign_in user }
+  let!(:user) { create :user, admin: false, id: '1000' }
 
-  scenario 'make a new student' do
+  scenario 'can see match for the day' do
 
-    visit new_user_session_path
+    visit root_path
 
-    fill_in "user_email", :with => admin.email
-    fill_in "user_password", :with => "123456"
-    click_button "Log in"
-
-    visit admins_path
-
-    page.find("#toggle-admin-500").click
-
-    sleep(1)
-
-    expect(page.find("#toggle-admin-500")).to have_content("Make Admin")
+    expect(page).to have_content("Your Match For Today")
 
   end
 end
