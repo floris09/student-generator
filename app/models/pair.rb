@@ -8,6 +8,11 @@ def make_pairs
 
 end
 
+def pair_per_day
+  @day = self.combinations.slice!(0)
+end
+
+
 private
 
   # def round_robin
@@ -57,6 +62,7 @@ private
       @student_emails << student.email
     end
   end
+
 
 
 end
