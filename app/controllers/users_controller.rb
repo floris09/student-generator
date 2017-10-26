@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:admin)
+      params.require(:user).permit(:admin, :first_name, :last_name)
     end
 
     def my_match
