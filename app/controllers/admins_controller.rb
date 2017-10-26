@@ -9,17 +9,13 @@ class AdminsController < ApplicationController
   end
 
   def showpair
-    if Pair.count == 0
-      @pair = Pair.create
-      @pair.make_pairs
-    else
+      @pair = Pair.create.make_pairs if Pair.count == 0
       @pair = Pair.last
-    end
+      @pair.make_pairs if @pair.combinations.count == 0
 
+      @daypair = Daypair.last
+      @daypairs = Daypair.limit(10).order(created_at: :desc).all
 
-    @pair.pair_per_day
-    @daypair = Daypair.last
-    @daypairs = Daypair.all
   end
 
 
@@ -27,9 +23,7 @@ class AdminsController < ApplicationController
   end
 
 
-    def show
-    end
-
+  def show; end
 
   private
 
@@ -45,5 +39,6 @@ class AdminsController < ApplicationController
   def user_params
     params.require(:user).permit(:admin)
   end
+
 
   end

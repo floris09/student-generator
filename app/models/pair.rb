@@ -5,7 +5,6 @@ def make_pairs
   round_robin
   self.combinations = @pairs
   self.save
-
 end
 
 def pair_per_day
@@ -13,9 +12,7 @@ def pair_per_day
     day = self.combinations.slice!(0)
     self.save
     @daypair = Daypair.create(date: Date.today, pairs: day )
-
   end
-
 end
 
 

@@ -14,8 +14,16 @@ function promoteAdmin(id) {
     console.log(data);
     button = document.getElementById(`toggle-admin-${id}`);
     button.className = "btn btn-success admin_btn";
-    button.onclick = demote();
     button.innerHTML = "Make Student";
+    button.onclick = demoteAdmin;
+
+    tag = document.getElementById(`tag-${id}`);
+    tag.className = "admin_tag";
+    tag.innerHTML = "Admin";
+
+    studentrow = document.getElementById(`${id}`);
+    child = document.getElementById(`child-${id}`);
+    studentrow.remove();
   });
 }
 
@@ -33,8 +41,16 @@ function demoteAdmin(id) {
     console.log(data);
     button = document.getElementById(`toggle-admin-${id}`);
     button.className = "btn btn-primary student_btn";
-    button.onclick = promote();
     button.innerHTML = "Make Admin";
+    button.onclick = promoteAdmin;
+
+    tag = document.getElementById(`tag-${id}`);
+    tag.className = "student_tag";
+    tag.innerHTML = "Student";
+
+    adminrow = document.getElementById(`${id}`);
+    child = document.getElementById(`child-${id}`);
+    adminrow.remove();
   });
 }
 

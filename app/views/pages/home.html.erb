@@ -2,9 +2,9 @@
 <h1>StudentGenerator</h1>
 
 <% if user_signed_in? && current_user.not_admin? %>
-<%= link_to "Students", users_path %>
+<%= link_to "Students", user_path(current_user) %>
 <% end %>
 <% if user_signed_in?  && current_user.admin? %>
 <%= link_to "Admin Settings", admins_path %>
-<button type="button" class="btn btn-primary btn-lg"><%= link_to "Student pairs", show_pair_path  %></button>
+<button type="button" class="btn btn-default btn-lg"><%= link_to "Student pairs", show_pair_path  %></button>
 <% end %>
