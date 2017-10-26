@@ -1,14 +1,14 @@
-
-<h1>StudentGenerator</h1>
+<div id="homepage">
 
 <% if user_signed_in? && current_user.not_admin? %>
 <%= link_to "Students", user_path(current_user) %>
 <% end %>
 <% if user_signed_in?  && current_user.admin? %>
-<%= link_to "Admin Settings", admins_path %>
-<button type="button" class="btn btn-default btn-lg"><%= link_to "Student pairs", show_pair_path  %></button>
+<button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "Student pairs", show_pair_path %></button>
+<button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "Admin Settings", admins_path %></button>
 <% end %>
 
 <img id="anja" src="http://res.cloudinary.com/florismeininger/image/upload/c_scale,w_266/v1509011737/anja_zy4pbj.png">
 <img id="anthony" src="http://res.cloudinary.com/florismeininger/image/upload/c_scale,w_258/v1509011109/anthony_wjtvwu.png">
 <img id="floris" src="http://res.cloudinary.com/florismeininger/image/upload/v1509012373/floris_b72qp5.png">
+</div>
