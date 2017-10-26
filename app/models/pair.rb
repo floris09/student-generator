@@ -7,31 +7,9 @@ def make_pairs
   self.save
 end
 
-def pair_per_day
-  if self.combinations.count > 0
-    @day = self.combinations.slice!(0)
-    self.save
-    @daypair = Daypair.create(date: Date.today, pairs: @day )
-
-  end
-end
-
 
 private
 
-  # def round_robin
-  #   @users = User.all
-  #   @students = @users.select {|a| a.not_admin?}
-  #   student_emails
-  #     @pairs = (1...@student_emails.size).map do |x|
-  #     s = @student_emails.dup
-  #     (1..(@student_emails.size/2)).map do |y|
-  #     index = -(x % s.size)
-  #     [s.shift,s.delete_at(index)]
-  #    end
-  # end
-  #
-  # end
 
   def round_robin
     @users = User.all
