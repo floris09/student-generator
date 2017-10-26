@@ -1,28 +1,32 @@
-<%= form_for @pair do |f| %>
-  <button type="button" class="btn btn-default btn-lg" style = "margin-top:0;">
-    <%= f.submit "Make new pairs", method: :update %>
-  </button>
-<% end %>
-
-<h1>Today's pairs</h1>
+<h1 class="text-center">Today's pairs</h1>
   <% if @daypair != nil %>
-  <p><u><%= @daypair.date %> :</u></p>
-<ul>
-  <% @daypair.pairs.each do |pair| %>
-  <li><%= pair.join(" - ") %></li>
-  <% end %>
-  <% end %>
-</ul>
+  <p class="text-center"><%= @daypair.date %></p>
+  <div class="container">
+    <ul class="text-center all_pairs">
+      <% @daypair.pairs.each do |pair| %>
+      <li class="pair_today"><%= pair.join(" - ") %></li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
 
-<h1>History</h1>
-<ol>
+  <div class="text-center">
+    <%= form_for @pair do |f| %>
+        <%= f.submit "Make new pairs", method: :update, class:"btn btn-success pair_submit" %>
+    <% end %>
+  </div>
+
+
+<h1 class="text-center">History</h1>
+<ol class="text-center history_pairs">
   <% if @daypairs != nil %>
-  <% @daypairs.each do |daypair| %>
-  <li><u><%= daypair.date %> : </u>
-  <% daypair.pairs.each do |pairs| %>
-  <p><%= pairs.join(" - ") %></p>
-  </li>
-  <% end %>
-  <% end %>
+    <% @daypairs.each do |daypair| %>
+    <li class="hist_pair"><strong class="date"><%= daypair.date %></strong>
+    <% daypair.pairs.each do |pairs| %>
+    <p><%= pairs.join(" - ") %></p>
+    </li>
+    <% end %>
+    <hr>
+    <% end %>
   <% end %>
 </ol>
