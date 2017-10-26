@@ -20,16 +20,6 @@ class AdminsController < ApplicationController
 
 
   def update
-    user = User.find(params[:id])
-
-    if user.update_attributes(user_params)
-      render status: 200, json: user
-    else
-      render status: 500, json: {
-        message: "The room could not be updated",
-        errors: room.errors
-      }.to_json
-    end
   end
 
 

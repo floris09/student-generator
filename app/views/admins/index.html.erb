@@ -18,31 +18,37 @@
         <h5 class="you_tag">YOU</h5>
       </div>
       <div class="col-xs-5 text-left">
-          <%= link_to admins_path do %><div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn you_btn'>Make Student</div> <% end %>
+          <!-- <%= link_to admins_path do %> -->
+          <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn you_btn'>Make Student</div>
+          <!-- <% end %> -->
       </div>
     </div>
       <% elsif user.admin? %>
     <div class="row admin_row">
       <div class="col-xs-2 text-center">
-        <h5 class="admin_tag">Admin</h5>
+        <h5 class="admin_tag" id="tag-<%=user.id%>">Admin</h5>
       </div>
       <div class="col-xs-4 text-center">
         <h5><%= user.email %></h5>
       </div>
       <div class="col-xs-6 text-left">
-          <%= link_to admins_path do %> <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn'>Make Student</div> <% end %>
+          <!-- <%= link_to admins_path do %>  -->
+          <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn'>Make Student</div>
+          <!-- <% end %> -->
       </div>
     </div>
       <% elsif user.not_admin? %>
       <div class="row admin_row">
         <div class="col-xs-2 text-center">
-          <h5 class="student_tag">Student</h5>
+          <h5 class="student_tag" id="tag-<%=user.id%>">Student</h5>
         </div>
         <div class="col-xs-4 text-center">
           <h5><%= user.email %></h5>
         </div>
         <div class="col-xs-6 text-left">
-          <%= link_to admins_path do %> <div id="toggle-admin-<%=user.id%>" onclick="promoteAdmin(<%=user.id%>)" class='btn btn-primary student_btn'>Make Admin</div> <% end %>
+         <!-- <%= link_to admins_path do %> -->
+         <div id="toggle-admin-<%=user.id%>" onclick="promoteAdmin(<%=user.id%>)" class='btn btn-primary student_btn'>Make Admin</div>
+         <!-- <% end %> -->
         </div>
         </div>
       <% end %>
@@ -58,8 +64,8 @@
   <div class="inner_all">
     <% @users.order_by_admin.each do |user| %>
       <% if user.admin? %>
-    <div class="row admin_row">
-      <div class="col-xs-4 text-center">
+    <div class="row admin_row" id="<%=user.id%>">
+      <div class="col-xs-4 text-center" id="child-<%=user.id%>">
         <h5 class="admin_tag">Admin</h5>
       </div>
       <div class="col-xs-8 text-left">
@@ -79,8 +85,8 @@
   <div class="inner_all">
     <% @users.order_by_admin.each do |user| %>
       <% if user.not_admin? %>
-    <div class="row admin_row">
-      <div class="col-xs-4 text-center">
+    <div class="row admin_row" id="<%=user.id%>">
+      <div class="col-xs-4 text-center" id="child-<%=user.id%>">
         <h5 class="student_tag">Student</h5>
       </div>
       <div class="col-xs-8 text-left">
