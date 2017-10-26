@@ -1,5 +1,5 @@
 <h1>My match today</h1>
-
+<% if @pair != nil %>
 <%= @pair[0] %> -
 <%= @pair[1] %>
 
@@ -16,4 +16,7 @@
 <% end %>
 <% end %>
 </li></br>
+<% end %>
+<% else %>
+<h1>No pairs for you :( </h1>
 <% end %>
