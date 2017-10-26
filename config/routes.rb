@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users
   resources :admins
-  resources :pairs
+  resources :daypairs
 
 
   get     "/showpair"  => "admins#showpair", as: :show_pair

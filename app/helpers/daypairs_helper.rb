@@ -1,0 +1,2 @@
+module DaypairsHelper
+end
