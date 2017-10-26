@@ -4,25 +4,25 @@
 
 #floris {
   position: fixed;
-  bottom: 100px;
-  right: 900px;
-  height:350px;
+  bottom: 400px;
+  right: 100px;
+  height:250px;
   -webkit-animation:spin 3s linear infinite;
 }
 
 #anthony {
   position: fixed;
   bottom: 300px;
-  right: 200px;
-  height:350px;
+  right: 60px;
+  height:250px;
   -webkit-animation:spin 1.5s linear infinite;
 }
 
 #anja {
   position: fixed;
   bottom: 300px;
-  right: 500px;
-  height:300px;
+  right: 20px;
+  height:200px;
   -webkit-animation:spin 4s linear infinite;
 }
 
@@ -144,4 +144,21 @@
 .btn-custom:hover,
 .btn-custom:focus {
     color: #fff;
+}
+
+#homepage {
+  width: 100%;
+  height: 650px;
+  position: fixed;
+  background-image: url("http://res.cloudinary.com/mdfchucknorris/image/upload/v1509019017/Student-ResourcesSmall_vbxveu.jpg");
+  background-size: cover;
+  margin-top: -20px;
+}
+
+.notice,.alert {
+  position: absolute;
+}
+
+#homebutton {
+  color: white;
 }
