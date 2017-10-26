@@ -5,9 +5,9 @@
 #floris {
   position: fixed;
   bottom: 100px;
-  right: 600px;
+  right: 900px;
   height:350px;
-  -webkit-animation:spin 2s linear infinite;
+  -webkit-animation:spin 3s linear infinite;
 }
 
 #anthony {
@@ -15,12 +15,12 @@
   bottom: 300px;
   right: 200px;
   height:350px;
-  -webkit-animation:spin 0.5s linear infinite;
+  -webkit-animation:spin 1.5s linear infinite;
 }
 
 #anja {
   position: fixed;
-  bottom: 400px;
+  bottom: 300px;
   right: 500px;
   height:300px;
   -webkit-animation:spin 4s linear infinite;
