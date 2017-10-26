@@ -9,11 +9,11 @@ feature 'Admin Settings', js: true do
 
       fill_in "user_email", :with => admin.email
       fill_in "user_password", :with => "123456"
+      fill_in "user_first_name", :with => "Cucumber"
+      fill_in "user_last_name", :with => "Tomato"
       click_button "Log in"
 
       visit root_path
-
-      sleep(1)
 
       expect(page).to have_link("Admin Settings")
     end

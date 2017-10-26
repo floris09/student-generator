@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       @daypair = Daypair.last
       @daypair.pairs.each do |pair|
       pair.each do |student|
-        if student == current_user.full_name
+        if student.include?(current_user.full_name)
           @pair = pair
         end
       end
