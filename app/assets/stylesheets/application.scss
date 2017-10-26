@@ -3,31 +3,54 @@
  @import "bootstrap";
 
 #floris {
-  position: fixed;
-  bottom: 400px;
-  right: 100px;
-  height:250px;
-  -webkit-animation:spin 3s linear infinite;
+  margin-bottom: 100px;
+  height:200px;
+  animation: bounce 1s infinite;
 }
 
 #anthony {
-  position: fixed;
-  bottom: 300px;
-  right: 60px;
-  height:250px;
-  -webkit-animation:spin 1.5s linear infinite;
+
+  margin-bottom: 100px;
+  height:200px;
+  animation: bounce 1.9s infinite;
 }
 
 #anja {
-  position: fixed;
-  bottom: 300px;
-  right: 20px;
+  margin-bottom: 100px;
   height:200px;
-  -webkit-animation:spin 4s linear infinite;
+  animation: bounce 1.5s infinite;
+}
+
+.spinning_heads {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 
+@keyframes bounce {
+    0%   { transform: translateY(6px); }
+    5%   { transform: translateY(8px); }
+    10%  { transform: translateY(12px); }
+    15%  { transform: translateY(20px); }
+    20%  { transform: translateY(38px); }
+    25%  { transform: translateY(72px); }
+    30%  { transform: translateY(100px); }
+    35%  { transform: translateY(152px); }
+    40%  { transform: translateY(154px) scale(1.1, .9); }
+    50%  { transform: translateY(176px) scale(1.4, .6); }
+    55%  { transform: translateY(162px) scale(1.2, .8); }
+    60%  { transform: translateY(138px) scale(1.05, .95); }
+    65%  { transform: translateY(110px); }
+    70%  { transform: translateY(72px); }
+    75%  { transform: translateY(38px); }
+    80%  { transform: translateY(20px); }
+    85%  { transform: translateY(12px); }
+    90%  { transform: translateY(8px); }
+    95%  { transform: translateY(5px); }
+    100% { transform: translateY(5px); }
+}
 
 .admin_row, .non_admin_row {
   margin-bottom: 10px;
@@ -151,7 +174,7 @@
   height: 650px;
   position: fixed;
   background-image: url("http://res.cloudinary.com/mdfchucknorris/image/upload/v1509019017/Student-ResourcesSmall_vbxveu.jpg");
-  background-size: cover;
+  background-size: 100%;
   margin-top: -20px;
 }
 
@@ -160,5 +183,10 @@
 }
 
 #homebutton {
-  color: white;
+  margin-top: 100px;
+  box-shadow: 1px 1px 30px #262626;
+}
+
+#homebutton a{
+  color: #fff;
 }
