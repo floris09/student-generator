@@ -27,15 +27,6 @@ class AdminsController < ApplicationController
 
   private
 
-  def student_emails
-    @student_emails = []
-    @students.each do |student|
-      @student_emails << student.email
-    end
-  end
-
-
-
   def user_params
     params.require(:user).permit(:admin)
   end

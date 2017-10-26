@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show
       my_match
-      @daypairs = Daypair.all.order(created_at: :desc)
+      @daypairs = Daypair.limit(10).order(created_at: :desc).all
     end
 
     def edit;end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       @daypair = Daypair.last
       @daypair.pairs.each do |pair|
       pair.each do |student|
-        if student == current_user.email
+        if student == current_user.full_name
           @pair = pair
         end
       end

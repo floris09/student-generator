@@ -9,7 +9,7 @@
 <% @daypairs.each do |daypair| %>
 <% daypair.pairs.each do |pairs| %>
 <% pairs.each do |pair| %>
-<% if pair == current_user.email  %>
+<% if pair == current_user.full_name  %>
 <li><u><%= daypair.date %> : </u></br>
 <%= pairs.join(" - ") %>
 <% end %>
