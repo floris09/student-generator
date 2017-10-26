@@ -9,7 +9,7 @@
     <% if user.id == current_user.id && current_user.admin? %>
     <div class="row admin_row">
       <div class="col-xs-2 text-center">
-        <h5 class="admin_tag">Admin</h5>
+        <h5 class="admin_tag" id="tag-<%=user.id%>">Admin</h5>
       </div>
       <div class="col-xs-3 text-center">
         <h5><%= user.email %></h5>
