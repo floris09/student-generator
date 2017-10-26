@@ -7,11 +7,11 @@ feature 'Manage admins', js: true do
 
   scenario 'make a new admin' do
 
-    visit new_user_session_path
+     visit new_user_session_path
 
-    fill_in "user_email", :with => admin.email
-    fill_in "user_password", :with => "123456"
-    click_button "Log in"
+     fill_in "user_email", :with => admin.email
+     fill_in "user_password", :with => "123456"
+     click_button "Log In"
 
     visit admins_path
 
@@ -27,7 +27,7 @@ feature 'Manage admins', js: true do
 
     fill_in "user_email", :with => admin.email
     fill_in "user_password", :with => "123456"
-    click_button "Log in"
+    click_button "Log In"
 
     visit admins_path
 
