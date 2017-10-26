@@ -1,7 +1,7 @@
 <div id="homepage">
 
 <% if user_signed_in? && current_user.not_admin? %>
-<%= link_to "Students", user_path(current_user) %>
+<button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "See my pairs", user_path(current_user) %></button>
 <% end %>
 <% if user_signed_in?  && current_user.admin? %>
 <div class="col-xs-6 col-xs-offset-3">

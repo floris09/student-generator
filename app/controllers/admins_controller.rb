@@ -20,8 +20,7 @@ class AdminsController < ApplicationController
   end
 
 
-  def update
-  end
+  def update; end
 
 
   def show; end
