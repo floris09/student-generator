@@ -1,6 +1,19 @@
 <h1>My match today</h1>
 
-<%= @pair %>
+<%= @pair[0] %> -
+<%= @pair[1] %>
+
+
 
 <h1>History</h1>
-<%= @history %>
+<% @daypairs.each do |daypair| %>
+<% daypair.pairs.each do |pairs| %>
+<% pairs.each do |pair| %>
+<% if pair == current_user.email  %>
+<li><u><%= daypair.date %> : </u></br>
+<%= pairs.join(" - ") %>
+<% end %>
+<% end %>
+<% end %>
+</li></br>
+<% end %>
