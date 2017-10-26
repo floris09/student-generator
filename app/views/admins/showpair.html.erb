@@ -1,3 +1,15 @@
+<div class="text-center">
+  <%= form_for @daypair do |f| %>
+  <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_select :date %>
+      <br/>
+      <%= f.submit "Make new pairs", method: :update, class:"btn btn-success pair_submit" %>
+  <% end %>
+  </div>
+</div>
+<br/>
+
 <h1 class="text-center">Last created pair</h1>
   <% if @daypair != nil %>
   <p class="text-center"><%= @daypair.date %></p>
@@ -8,14 +20,6 @@
       <% end %>
       <% end %>
     </ul>
-  </div>
-
-  <div class="text-center">
-    <%= form_for @daypair do |f| %>
-        <%= f.label :date %>
-        <%= f.date_select :date %>
-        <%= f.submit "Make new pairs", method: :update, class:"btn btn-success pair_submit" %>
-    <% end %>
   </div>
 
 
