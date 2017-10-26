@@ -9,20 +9,12 @@ class AdminsController < ApplicationController
   end
 
   def showpair
-    if Pair.count == 0
-      @pair = Pair.create
-      @pair.make_pairs
-    else
+      @pair = Pair.create.make_pairs if Pair.count == 0
       @pair = Pair.last
-    end
+      @pair.make_pairs if @pair.combinations.count == 0
 
-    if @pair.combinations.count == 0
-      @pair.make_pairs
-    end
-
-
-    @daypair = Daypair.last
-    @daypairs = Daypair.all
+      @daypair = Daypair.last
+      @daypairs = Daypair.limit(10).order(created_at: :desc).all
 
   end
 
@@ -41,9 +33,7 @@ class AdminsController < ApplicationController
   end
 
 
-    def show
-    end
-
+  def show; end
 
   private
 
