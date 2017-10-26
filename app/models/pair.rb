@@ -9,9 +9,10 @@ end
 
 def pair_per_day
   if self.combinations.count > 0
-    day = self.combinations.slice!(0)
+    @day = self.combinations.slice!(0)
     self.save
-    @daypair = Daypair.create(date: Date.today, pairs: day )
+    @daypair = Daypair.create(date: Date.today, pairs: @day )
+
   end
 end
 
