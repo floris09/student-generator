@@ -2,6 +2,32 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+#floris {
+  position: fixed;
+  bottom: 100px;
+  right: 600px;
+  height:350px;
+  -webkit-animation:spin 2s linear infinite;
+}
+
+#anthony {
+  position: fixed;
+  bottom: 300px;
+  right: 200px;
+  height:350px;
+  -webkit-animation:spin 0.5s linear infinite;
+}
+
+#anja {
+  position: fixed;
+  bottom: 400px;
+  right: 500px;
+  height:300px;
+  -webkit-animation:spin 4s linear infinite;
+}
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+
 
 .admin_row, .non_admin_row {
   margin-bottom: 10px;
