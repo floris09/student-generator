@@ -2,6 +2,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ nav {
+   box-shadow: -1px -1px 10px #ccc;
+ }
+
 #floris {
   margin-bottom: 100px;
   height:200px;
@@ -189,4 +193,8 @@
 
 #homebutton a{
   color: #fff;
+}
+
+.inner_all {
+  box-shadow: 1px 1px 20px #ccc;
 }
