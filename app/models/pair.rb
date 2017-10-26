@@ -36,13 +36,13 @@ private
     @users = User.all
     @students = @users.select {|a| a.not_admin?}
     @pairs = []
-    student_emails
+    student_names
 
     for i in 1...(@students.count)
 
       @day = []
 
-      s = @student_emails.dup
+      s = @student_names.dup
 
       for i in 1..(@students.count/2) do
         if s.count == 3
@@ -56,19 +56,19 @@ private
 
       @pairs << @day
 
-      @student_emails.insert(1,@student_emails.delete_at(@student_emails.count-1))
+      @student_names.insert(1,@student_names.delete_at(@student_names.count-1))
     end
 
   end
 
-  def student_emails
+  def student_names
     @users = User.all
     @students = @users.select {|a| a.not_admin?}
-    @student_emails = []
+    @student_names = []
     @students.each do |student|
-      @student_emails << student.email
+      @student_names << student.full_name
     end
-    @student_emails = @student_emails.shuffle
+    @student_names = @student_names.shuffle
   end
 
 

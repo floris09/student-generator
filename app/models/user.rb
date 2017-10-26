@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
   def admin?
     self.admin == true
   end
@@ -14,6 +14,10 @@ class User < ApplicationRecord
 
   def self.order_by_admin
     order(admin: :desc)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
 end

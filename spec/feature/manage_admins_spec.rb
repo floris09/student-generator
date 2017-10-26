@@ -36,4 +36,5 @@ feature 'Manage admins', js: true do
     expect(page.find("#toggle-admin-2000")).to have_content("Make Admin")
 
   end
+
 end
