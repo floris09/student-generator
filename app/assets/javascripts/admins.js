@@ -15,17 +15,22 @@ function promoteAdmin(id) {
     button = document.getElementById(`toggle-admin-${id}`);
     button.className = "btn btn-success admin_btn";
     button.innerHTML = "Make Student";
-    button.onclick = demoteAdmin;
+    button.onclick = function(){ demoteAdmin(id) };
 
     tag = document.getElementById(`tag-${id}`);
     tag.className = "admin_tag";
     tag.innerHTML = "Admin";
 
     studentrow = document.getElementById(`${id}`);
-    child = document.getElementById(`child-${id}`);
-    studentrow.remove();
+    admins = document.getElementById("admins");
+    admins.appendChild(studentrow);
+    tag2 = document.getElementById(`tag2-${id}`);
+    tag2.className = "admin_tag";
+    tag2.innerHTML = "Admin";
+
   });
 }
+
 
 function demoteAdmin(id) {
   $.ajax({
@@ -42,26 +47,17 @@ function demoteAdmin(id) {
     button = document.getElementById(`toggle-admin-${id}`);
     button.className = "btn btn-primary student_btn";
     button.innerHTML = "Make Admin";
-    button.onclick = promoteAdmin;
+    button.onclick = function(){ promoteAdmin(id) };
 
     tag = document.getElementById(`tag-${id}`);
     tag.className = "student_tag";
     tag.innerHTML = "Student";
 
     adminrow = document.getElementById(`${id}`);
-    child = document.getElementById(`child-${id}`);
-    adminrow.remove();
+    students = document.getElementById("students");
+    students.appendChild(adminrow);
+    tag2 = document.getElementById(`tag2-${id}`);
+    tag2.className = "student_tag";
+    tag2.innerHTML = "Student";
   });
 }
-
-function promote(){
-    return function() {
-        demoteAdmin(id);
-    }
-  }
-
-function promote(){
-    return function() {
-          promotesAdmin(id);
-        }
-      }
