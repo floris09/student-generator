@@ -1,14 +1,19 @@
 require 'rails_helper'
 
 feature 'Manage students' do
-  before { sign_in user }
   let!(:user) { create :user, admin: false, id: '1000' }
 
-  scenario 'can see match for the day' do
+  scenario 'can see match for the day and previous matches' do
+    visit new_user_session_path
 
-    visit root_path
+    fill_in "user_email", :with => user.email
+    fill_in "user_password", :with => "123456"
+    click_button "Log In"
 
-    expect(page).to have_content("Your Match For Today")
+    visit user_path(user)
+
+    expect(page).to have_content("My match today")
+    expect(page).to have_content("History")
 
   end
 
@@ -17,6 +22,6 @@ feature 'Manage students' do
     visit root_path
 
     expect(page).to have_content("Your Previous Matches")
-    
+
   end
 end
