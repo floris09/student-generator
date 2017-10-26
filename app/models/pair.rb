@@ -45,9 +45,13 @@ private
       s = @student_names.dup
 
       for i in 1..(@students.count/2) do
+        if s.count == 3
+          @day << [s[0], "#{s[1]} + #{s[2]}"]
+        else
           @day << [s.first,s.last]
           s.slice!(0)
           s.slice!(s.count-1)
+        end
       end
 
       @pairs << @day
