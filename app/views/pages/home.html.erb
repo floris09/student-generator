@@ -1,19 +1,24 @@
 <div id="homepage">
 
-<% if user_signed_in? && current_user.not_admin? %>
-<button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "See my pairs", user_path(current_user) %></button>
-<% end %>
-<% if user_signed_in?  && current_user.admin? %>
-<div class="col-xs-6 col-xs-offset-3">
-<button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "Student pairs", show_pair_path %></button>
-<button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "Admin Settings", admins_path %></button>
-</div>
-<% end %>
+  <% if !user_signed_in? %>
+    <h1 id="hometitle" class="text-center">Welcome to Student </br>
+       Generator</h1>
+  <% end %>
 
-<div class="row spinning_heads">
-  <div class="col-xs-4 text-center"><img id="anja" src="http://res.cloudinary.com/florismeininger/image/upload/c_scale,w_266/v1509011737/anja_zy4pbj.png"></div>
-  <div class="col-xs-4 text-center"><img id="anthony" src="http://res.cloudinary.com/florismeininger/image/upload/c_scale,w_209/v1509028129/anthony2_td4yjs.png"></div>
-  <div class="col-xs-4 text-center"><img id="floris" src="http://res.cloudinary.com/florismeininger/image/upload/v1509012373/floris_b72qp5.png"></div>
-</div>
+  <% if user_signed_in? && current_user.not_admin? %>
+  <button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "See my pairs", user_path(current_user) %></button>
+  <% end %>
+  <% if user_signed_in?  && current_user.admin? %>
+  <div class="col-xs-6 col-xs-offset-3">
+    <button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "Student pairs", show_pair_path %></button>
+    <button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "Admin Settings", admins_path %></button>
+  </div>
+  <% end %>
+
+  <div class="row spinning_heads">
+    <div class="col-xs-4 text-center"><img id="anja" src="http://res.cloudinary.com/florismeininger/image/upload/c_scale,w_266/v1509011737/anja_zy4pbj.png"></div>
+    <div class="col-xs-4 text-center"><img id="anthony" src="http://res.cloudinary.com/florismeininger/image/upload/c_scale,w_209/v1509028129/anthony2_td4yjs.png"></div>
+    <div class="col-xs-4 text-center"><img id="floris" src="http://res.cloudinary.com/florismeininger/image/upload/v1509012373/floris_b72qp5.png"></div>
+  </div>
 
 </div>

@@ -13,9 +13,10 @@ class AdminsController < ApplicationController
       @pair = Pair.last
       @pair.make_pairs if @pair.combinations.count == 0
 
+      @daypair = Daypair.create if Daypair.count == 0
       @daypair = Daypair.last
       @daypairs = Daypair.history.all.order(date: :desc)
-      @dayfuture = Daypair.after_today.all
+      @dayfuture = Daypair.after_today.all.order(date: :asc)
 
   end
 

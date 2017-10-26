@@ -1,14 +1,18 @@
-<h1 class="text-center">My match today</h1>
+<h1 class="text-center">My match today (<%= Date.today %>)</h1>
 <% if @pair != nil %>
 <div class="container">
   <ul class="text-center all_pairs">
     <li class="pair_today"><%= @pair[0] if @pair[0] != current_user.full_name %></li>
-      <li class="pair_today"><%= @pair[1] if @pair[1] != current_user.full_name %></li>
-        <% else %>
-      <li class="pair_today">Lonely, I'm so lonely </li>
-        <% end %>
+    <li class="pair_today"><%= @pair[1] if @pair[1] != current_user.full_name %></li>
+    <% else %>
+    <div class="container">
+      <ul class="text-center all_pairs">
+        <li class="pair_today">Lonely, I'm so lonely </li>
       </ul>
     </div>
+    <% end %>
+  </ul>
+</div>
 
 <% if @daypairs != nil %>
 <h1 class="text-center">History</h1>
@@ -18,8 +22,8 @@
   <% pairs.each do |pair| %>
   <% if pair == current_user.full_name  %>
   <li class="hist_pair"><strong class="date"><%= daypair.date %> : </strong>
-  <p><%= pairs[0] if pairs[0] != current_user.full_name %></p>
-  <p><%= pairs[1] if pairs[1] != current_user.full_name %></p>
+    <p><%= pairs[0] if pairs[0] != current_user.full_name %></p>
+    <p><%= pairs[1] if pairs[1] != current_user.full_name %></p>
   </li>
   <% end %>
   <% end %>
