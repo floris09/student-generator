@@ -14,7 +14,8 @@ class AdminsController < ApplicationController
       @pair.make_pairs if @pair.combinations.count == 0
 
       @daypair = Daypair.last
-      @daypairs = Daypair.limit(10).order(created_at: :desc).all
+      @daypairs = Daypair.history.all.order(date: :desc)
+      @dayfuture = Daypair.after_today.all
 
   end
 

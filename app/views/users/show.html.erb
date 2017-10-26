@@ -2,9 +2,11 @@
   <% if @pair != nil %>
   <%= @pair[0] if @pair[0] != current_user.full_name %> -
   <%= @pair[1] if @pair[1] != current_user.full_name %>
+<% else %>
+    <h1>Lonely, I'm so lonely </h1>
+<% end %>
 
-
-
+<% if @daypairs != nil %>
 <h1>History</h1>
   <% @daypairs.each do |daypair| %>
   <% daypair.pairs.each do |pairs| %>
@@ -18,6 +20,4 @@
   <% end %>
   </li></br>
   <% end %>
-  <% else %>
-    <h1>No pairs for you :( </h1>
   <% end %>
