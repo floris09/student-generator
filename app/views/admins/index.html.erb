@@ -18,7 +18,9 @@
         <h5 class="you_tag">YOU</h5>
       </div>
       <div class="col-xs-5 text-left">
-          <%= link_to admins_path do %><div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn you_btn'>Make Student</div> <% end %>
+          <!-- <%= link_to admins_path do %> -->
+          <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn you_btn'>Make Student</div>
+          <!-- <% end %> -->
       </div>
     </div>
       <% elsif user.admin? %>
@@ -30,7 +32,9 @@
         <h5><%= user.email %></h5>
       </div>
       <div class="col-xs-6 text-left">
-          <%= link_to admins_path do %> <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn'>Make Student</div> <% end %>
+          <!-- <%= link_to admins_path do %>  -->
+          <div id="toggle-admin-<%=user.id%>" onclick="demoteAdmin(<%=user.id%>)" class='btn btn-success admin_btn'>Make Student</div>
+          <!-- <% end %> -->
       </div>
     </div>
       <% elsif user.not_admin? %>
@@ -42,7 +46,9 @@
           <h5><%= user.email %></h5>
         </div>
         <div class="col-xs-6 text-left">
-          <%= link_to admins_path do %> <div id="toggle-admin-<%=user.id%>" onclick="promoteAdmin(<%=user.id%>)" class='btn btn-primary student_btn'>Make Admin</div> <% end %>
+         <!-- <%= link_to admins_path do %> -->
+         <div id="toggle-admin-<%=user.id%>" onclick="promoteAdmin(<%=user.id%>)" class='btn btn-primary student_btn'>Make Admin</div>
+         <!-- <% end %> -->
         </div>
         </div>
       <% end %>

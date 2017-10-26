@@ -14,11 +14,16 @@ class UsersController < ApplicationController
     end
 
     def update
-    if @user.update_attributes(user_params)
-      redirect_to admins_path
-    else
-      render 'edit'
-    end
+      user = User.find(params[:id])
+
+      if user.update_attributes(user_params)
+        render status: 200, json: user
+      else
+        render status: 500, json: {
+          message: "The user could not be updated",
+          errors: user.errors
+        }.to_json
+      end
   end
 
     private

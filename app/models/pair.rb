@@ -48,9 +48,13 @@ private
       s = @student_emails.dup
 
       for i in 1..(@students.count/2) do
-        @day << [s.first,s.last]
-        s.slice!(0)
-        s.slice!(s.count-1)
+        if s.count == 3
+          @day << s
+        else
+          @day << [s.first,s.last]
+          s.slice!(0)
+          s.slice!(s.count-1)
+        end
       end
 
       @pairs << @day
