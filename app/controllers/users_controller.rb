@@ -6,25 +6,8 @@ class UsersController < ApplicationController
     def index; end
 
     def show
-      @daypair = Daypair.last
-      @daypair.pairs.each do |pair|
-      pair.each do |student|
-        if student == current_user.email
-          @pair = pair
-        end
-      end
-      end
-      @history = []
-      @daypairs = Daypair.all
-      @daypairs.each do |daypair|
-        daypair.pairs.each do |pairs|
-        pairs.each do |pair|
-          if pair == current_user.email
-            @history << pairs
-            end
-          end
-        end
-      end
+      my_match
+      @daypairs = Daypair.limit(10).order(created_at: :desc).all
     end
 
     def edit;end
@@ -50,6 +33,17 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:admin)
+    end
+
+    def my_match
+      @daypair = Daypair.last
+      @daypair.pairs.each do |pair|
+      pair.each do |student|
+        if student == current_user.full_name
+          @pair = pair
+        end
+      end
+    end
     end
 
 end
