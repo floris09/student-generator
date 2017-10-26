@@ -32,3 +32,18 @@
     <% end %>
   <% end %>
 </ol>
+
+
+<h1 class="text-center">Future pairs</h1>
+<ol class="text-center history_pairs">
+  <% if @dayfuture != nil %>
+    <% @dayfuture.each do |daypair| %>
+    <li class="hist_pair"><strong class="date"><%= daypair.date %></strong>
+    <% daypair.pairs.each do |pairs| %>
+    <p><%= pairs.join(" - ") %></p>
+    </li>
+    <% end %>
+    <hr>
+    <% end %>
+  <% end %>
+</ol>
