@@ -16,12 +16,4 @@ feature 'Manage students' do
     expect(page).to have_content("History")
 
   end
-
-  scenario 'can see matches of previous days' do
-
-    visit root_path
-
-    expect(page).to have_content("Your Previous Matches")
-
   end
-end
