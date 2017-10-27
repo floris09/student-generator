@@ -1,7 +1,7 @@
 <div class="text-center">
   <%= form_for @daypair do |f| %>
-  <div class="form-group">
-      <%= f.label :date %>
+  <div class="form-group form_color">
+      <h5 style="color: #fff;"><%= f.label :date %></h5>
       <%= f.date_select :date %>
       <br/>
       <%= f.submit "Make new pairs", method: :update, class:"btn btn-success pair_submit" %>
