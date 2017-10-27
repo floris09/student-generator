@@ -1,5 +1,6 @@
 User.destroy_all
 Pair.destroy_all
+Daypair.destroy_all
 
 
 User.create!(first_name:"Anja", last_name:"Rupnik", email:"anja@email.com", password: "123456", admin: true)
