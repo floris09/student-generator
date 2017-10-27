@@ -18,10 +18,7 @@ class UsersController < ApplicationController
     if user.update_attributes(user_params)
       render status: 200, json: user
     else
-      render status: 500, json: {
-        message: "The user could not be updated",
-        errors: user.errors
-      }.to_json
+      render status: 500, json: user.errors
     end
   end
 

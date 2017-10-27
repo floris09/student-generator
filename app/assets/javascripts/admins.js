@@ -27,6 +27,8 @@ function promoteAdmin(id) {
     tag2 = document.getElementById(`tag2-${id}`);
     tag2.className = "admin_tag";
     tag2.innerHTML = "Admin";
+  })
+  .fail(function(data){
 
   });
 }
