@@ -1,5 +1,4 @@
 class Pair < ApplicationRecord
-  has_many :users
 
 def make_pairs
   round_robin
