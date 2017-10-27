@@ -30,6 +30,6 @@ feature 'Student Match Link', js: true do
 
       visit root_path
 
-      expect(page).to have_link("See my pairs")
+      expect(page).to have_link("See Your Pairs")
     end
 end
