@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  describe "#admin?" do
+  describe ".admin?" do
   let(:user) {create :user, admin: true}
 
    it "returns true if user is admin" do
@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
    end
  end
 
- describe "#not_admin?" do
+ describe ".not_admin?" do
  let(:user) {create :user}
 
   it "returns true if user is admin" do
@@ -43,8 +43,12 @@ describe "validations" do
   end
 end
 
+describe ".full_name" do
+    let(:user) {create :user, first_name: "Anja", last_name: "Rupnik"}
 
-
-
+  it "shows the user's full name" do
+    expect(user.full_name).to eq("Anja Rupnik")
+  end
+end
 
 end
