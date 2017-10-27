@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
  describe ".not_admin?" do
  let(:user) {create :user}
 
-  it "returns true if user is admin" do
+  it "returns false if user is not admin" do
     expect(user.admin?).to eq(false)
   end
 end
