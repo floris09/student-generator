@@ -31,7 +31,7 @@ RSpec.describe Pair, type: :model do
         pair.make_pairs
       end
 
-    it "make combinations with all students" do
+    it "does combinations with all students" do
        expect(pair.combinations.map(&:join).to_s).to include(user1.full_name, user2.full_name, user3.full_name, user4.full_name )
      end
     it "doesn't include admins in combinations" do
