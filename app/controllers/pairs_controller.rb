@@ -1,5 +1,0 @@
-class PairsController < ApplicationController
-
-
-
-end
