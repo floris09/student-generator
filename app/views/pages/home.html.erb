@@ -7,7 +7,7 @@
 
   <% if user_signed_in? && current_user.not_admin? %>
   <div class="row">
-    <h3 style="color:grey; margin-top: 140px; margin-bottom: -80px;" class="text-center">Welcome <%= current_user.first_name %>!</h3>
+    <h3 style="color:#fff; margin-top: 140px; margin-bottom: -80px;" class="text-center">Welcome <%= current_user.first_name %>!</h3>
   </div>
   <div class="col-xs-4 col-xs-offset-4">
     <button type="button" id="homebutton" class="btn btn-custom btn-lg btn-block" ><%= link_to "See Your Pairs", user_path(current_user) %></button>
