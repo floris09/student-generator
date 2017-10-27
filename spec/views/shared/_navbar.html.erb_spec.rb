@@ -15,9 +15,9 @@ describe "shared/_navbar.html.erb" do
     before { sign_in user }
     let(:user) { create :user }
 
-    it "renders emailadres" do
+    it "renders full name" do
       render
-      expect(rendered).to have_content user.email
+      expect(rendered).to have_content user.full_name
     end
   end
 end
