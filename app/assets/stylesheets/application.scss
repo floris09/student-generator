@@ -158,7 +158,10 @@
 .history_pairs {
   box-shadow: 1px 1px 10px #ccc;
   width: 500px;
+  height: 500px;
+  overflow-y: scroll;
   margin: auto;
+  margin-bottom: 100px;
   color: #fff;
   font-size: 17px;
   background-color: #727272;
