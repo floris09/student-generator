@@ -10,10 +10,10 @@ Ruby Application for matching students in pairs.
 - Students can see their partner of today and their partners before today.
 - Bouncing heads.
 
-<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2009.58.53.png" alt="studentmatcher" width="400" height="280" border="10" align="left"/>
-<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2009.59.52.png" alt="studentmatcher" width="400" height="280" border="10" align="left/>
-<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2010.00.36.png" alt="studentmatcher" width="400" height="280" border="10" align="left/>
-<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2010.16.21.png" alt="studentmatcher" width="400" height="280" border="10" align="left"/>
+<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2009.58.53.png" alt="studentmatcher" width="400" height="280" border="10" position="relative" align="left"/>
+<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2009.59.52.png" alt="studentmatcher" width="400" height="280" border="10" position="relative" align="left/>
+<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2010.00.36.png" alt="studentmatcher" width="400" height="280" border="10" position="relative" align="left/>
+<img src="https://github.com/floris09/student-generator/blob/master/app/assets/images/Screen%20Shot%202017-12-04%20at%2010.16.21.png" alt="studentmatcher" width="400" height="280" border="10" position="relative" align="left"/>
 
 ## Database Structure
 
